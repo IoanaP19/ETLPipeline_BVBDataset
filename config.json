@@ -1,0 +1,38 @@
+{
+  "_comment": "BVB ETL Pipeline — Configuration File. Edit here without touching any Python code.",
+
+  "pipeline": {
+    "start_date": "2024-01-01",
+    "end_date":   "2025-12-31"
+  },
+
+  "companies": {
+    "TLV.RO": { "name": "Banca Transilvania",    "sector": "Banking"      },
+    "SNP.RO": { "name": "OMV Petrom",             "sector": "Energy"       },
+    "TGN.RO": { "name": "Transgaz",               "sector": "Energy"       },
+    "SNG.RO": { "name": "Romgaz",                 "sector": "Energy"       },
+    "FP.RO":  { "name": "Fondul Proprietatea",    "sector": "Financial"    },
+    "ONE.RO": { "name": "One United Properties",  "sector": "Real Estate"  }
+  },
+
+  "data_quality": {
+    "spike_ratio_upper":    3.0,
+    "spike_ratio_lower":    0.33,
+    "spike_window_days":    30,
+    "spike_min_periods":    5,
+    "return_outlier_cap":   0.25,
+    "volatility_threshold": 0.15,
+    "dq_log_threshold":     0.05
+  },
+
+  "analysis": {
+    "risk_free_rate":       0.065,
+    "trading_days_per_year":252,
+    "sma_windows":          [50, 200]
+  },
+
+  "output": {
+    "db_table":   "bvb_prices",
+    "log_file":   "outputs/pipeline.log"
+  }
+}
